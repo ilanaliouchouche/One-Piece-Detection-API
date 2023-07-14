@@ -36,13 +36,13 @@ def index():
 def modele():
     if 'image' in request.files:
         image = request.files['image']
-        print(image)  # Vérifier si l'image est correctement récupérée
+        print(image)  
         img = cv2.imdecode(np.fromstring(image.read(), np.uint8), cv2.IMREAD_COLOR)
-        print(img)  # Vérifier si l'image est correctement décodée
+        print(img)  
         img_resize = tf.image.resize(img, (224, 224))
-        print(img_resize)  # Vérifier la forme de l'image redimensionnée
+        print(img_resize)  
         prediction = model.predict(np.expand_dims(img_resize, 0))
-        print(prediction)  # Vérifier les résultats de la prédiction
+        print(prediction) 
         res = np.argmax(prediction)
         character = class_dict.get(res + 1)
         return character
