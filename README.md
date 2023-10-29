@@ -15,4 +15,4 @@ This web application harnesses the capabilities of a deep learning model (CNN) t
 ## 🕵️‍♂️ 4 - Character Detection 🔍
 ![Character Detection](images_readme/image4.png)
 
-##🏴‍☠️
+## 🏴‍☠️
