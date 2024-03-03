@@ -1,5 +1,5 @@
 tensorflow==2.15.0.post1
-flask==2.2.2
+flask==2.2.5
 werkzeug==2.2.3
 numpy==1.24.3
 opencv-python==4.8.1.78
