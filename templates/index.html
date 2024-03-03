@@ -1,115 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>ONE PIECE CHARACTER ML by Ilan</title>
-    <style>
-        body {
-            background-image: url("{{ url_for('static', filename='wp.jpg') }}");
-            background-size: cover;
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-
-        header {
-            background-color: #d62828;
-            color: white;
-            padding: 20px;
-            text-align: center;
-            position: relative;
-        }
-
-        h1 {
-            font-size: 24px;
-            margin: 0;
-        }
-
-        .logo {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-        }
-
-        .container {
-            max-width: 600px;
-            margin: 40px auto;
-            padding: 20px;
-            background-color: white;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        label {
-            display: block;
-            font-size: 18px;
-            margin-bottom: 5px;
-        }
-
-        input[type="file"] {
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 16px;
-        }
-
-        .button-primary {
-            padding: 10px 20px;
-            background-color: #d62828;
-            color: white;
-            font-size: 18px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        .button-primary:hover {
-            background-color: #ba1818;
-        }
-
-        video {
-            width: 100%;
-            height: auto;
-            margin-top: 20px;
-        }
-
-        canvas {
-            display: none;
-        }
-
-        .screenshot-image {
-            display: block;
-            width: 200px;
-            height: auto;
-            margin-bottom: 10px;
-        }
-    </style>
+    <title>OP-API</title>
+    <link rel="stylesheet" type="text/css" href="../static/style.css">
 </head>
 <body>
     <header>
-        <img src="{{ url_for('static', filename='cdp.jpg') }}" alt="Logo" class="logo">
+        <img src="../static/cdp.jpg" alt="Logo" class="logo">
         <h1>ONE PIECE CHARACTER ML by Ilan</h1>
     </header>
 
     <div class="container">
         <form action="#" method="POST" enctype="multipart/form-data">
             <div class="form-group">
-                <label for="video">Sélectionnez une vidéo :</label>
+                <label for="video">Select a video</label>
                 <input type="file" name="video" id="video" accept="video/*" onchange="showVideo()">
             </div>
 
             <div class="form-group">
-                <input type="button" value="Prendre un screenshot" onclick="captureScreenshot()" class="button-primary">
+                <input type="button" value="Screenshot" onclick="captureScreenshot()" class="button-primary">
             </div>
 
             <div class="form-group" id="detectionButtonGroup" style="display: none;">
-                <input type="button" value="Détecter" onclick="detectCharacters()" class="button-primary">
+                <input type="button" value="Detect" onclick="detectCharacters()" class="button-primary">
             </div>
         </form>
 
@@ -177,11 +90,11 @@
             xhr.onload = function () {
                if (xhr.status === 200) {
                      const character = xhr.responseText;
-                     predictionElement.innerHTML = "Il s'agit de : " + character; 
+                     predictionElement.innerHTML = "The character is " + character;
                      predictionElement.style.fontSize = "24px"; 
                      predictionElement.style.fontWeight = "bold"; 
                } else {
-                     console.error('Erreur lors de la détection des personnages');
+                     console.error('Error!');
                }
             };
 
